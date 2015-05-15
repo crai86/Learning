@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+	<title>Form Elements</title>
+	<link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+</head>
+<body data-ng-app="formApp" class="container">
+<header>
+
+</header>
+<main >
+	<section class="col-md-12" data-ng-controller="FormAppController as ctrl">
+		<header>
+			<h1>Angular form element directives</h1>
+		</header>
+		<ui-form name="sampleForm" data-parent-controller="ctrl" data-ng-submit="ctrl.submitHandler()">
+			<div class="row">
+				<ui-form-element-input element-name="sampleText"
+				                       data-ng-model="ctrl.model.payload.name"
+				                       data-config="ctrl.model.metadata.name"
+				                       data-message="ctrl.getErrorMessage(sampleForm.sampleText)"
+				                       class="col-md-6">
+				</ui-form-element-input>
+				<div >
+					<span class="help-block" data-ng-show="sampleForm.sampleText.$dirty && sampleForm.sampleText.$error.required">
+                        This field is required.
+                     </span>
+				</div>
+				<ui-form-element-input element-name="sampleText2"
+				                       data-ng-model="ctrl.model.payload.last"
+				                       data-config="ctrl.model.metadata.last"
+				                       data-message="ctrl.getErrorMessage(sampleForm.sampleText2)"
+				                       class="col-md-6">
+				</ui-form-element-input>
+			</div>
+			<hr>
+			<div class="row">
+				<ui-form-element-input element-name="sampleNumber"
+				                       data-ng-model="ctrl.model.payload.age"
+				                       data-config="ctrl.model.metadata.age"
+				                       data-message="ctrl.getErrorMessage(sampleForm.sampleNumber)"
+				                       class="col-md-6">
+				</ui-form-element-input>
+				<ui-form-element-input element-name="sampleDate"
+				                       data-ng-model="ctrl.model.payload.birthDay"
+				                       data-config="ctrl.model.metadata.birthDay"
+				                       data-message="ctrl.getErrorMessage(sampleForm.sampleDate)"
+				                       class="col-md-6">
+				</ui-form-element-input>
+			</div>
+		</ui-form>
+	</section>
+</main>
+<footer>
+
+</footer>
+<script src="common/directives/directiveModule.js"></script>
+<script src="common/directives/form/formModule.js"></script>
+<script src="common/directives/form/formService.js"></script>
+<script src="common/directives/form/formDirective.js"></script>
+<script src="common/directives/form/formElementInputDirective.js"></script>
+
+<script src="formApp.js"></script>
+</body>
+</html>
